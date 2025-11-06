@@ -17,7 +17,7 @@
             <button class="bg-white text-green-500 px-4 py-1 rounded-lg">0</button>
         </div>
         <div>
-            <a href="">Login</a>
+            <a href="/login">Login</a>
         </div>
     </header>
     @yield('content')

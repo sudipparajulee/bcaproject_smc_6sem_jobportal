@@ -2,7 +2,7 @@
 @section('content')
     <div class="grid gap-4 px-12 mt-5">
         @for ($i = 0; $i < 5; $i++)
-            <a href="#" class="bg-white p-4 rounded-lg shadow">
+            <a href="/jobview" class="bg-white p-4 rounded-lg shadow">
                 <h3 class=" text-lg text-green-600">Job Title {{ $i + 1 }}</h3>
                 <p class="text-gray-600 line-clamp-2 text-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quidem porro quas cumque minima amet quisquam soluta nulla ex itaque provident veritatis molestiae eius velit perferendis est voluptatum vel, assumenda iure reiciendis autem natus dolorum. Cupiditate autem nobis magni asperiores exercitationem laboriosam, dicta suscipit, eum, expedita iste aperiam sed porro!</p>
                 <div class="mt-2 flex items-center justify-between text-[10px]">
