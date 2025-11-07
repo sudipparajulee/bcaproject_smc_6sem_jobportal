@@ -15,22 +15,22 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
-
-            <!-- Page Heading -->
-            @isset($header)
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endisset
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+        <div class="flex">
+            <div class="bg-gray-100 w-52 h-screen pt-5">
+                <a href="" class="font-bold text-lg block hover:bg-blue-600 hover:text-white px-4 py-2">Dashboard</a>
+                <a href="" class="font-bold text-lg block hover:bg-blue-600 hover:text-white px-4 py-2">Tags</a>
+                <a href="" class="font-bold text-lg block hover:bg-blue-600 hover:text-white px-4 py-2">Companies</a>
+                <a href="" class="font-bold text-lg block hover:bg-blue-600 hover:text-white px-4 py-2">Users</a>
+                <a href="" class="font-bold text-lg block hover:bg-blue-600 hover:text-white px-4 py-2">Jobs</a>
+                <a href="" class="font-bold text-lg block hover:bg-blue-600 hover:text-white px-4 py-2">Logout</a>
+            </div>
+            <div class="p-4 flex-1">
+                <h1 class="text-2xl font-bold">@yield('title')</h1>
+                <hr class="bg-blue-600 h-1">
+                <div class="mt-4">
+                    @yield('content')
+                </div>
+            </div>
         </div>
     </body>
 </html>
