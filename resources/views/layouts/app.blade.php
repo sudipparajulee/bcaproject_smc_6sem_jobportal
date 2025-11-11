@@ -17,8 +17,8 @@
     <body class="font-sans antialiased">
         <div class="flex">
             <div class="bg-gray-100 w-52 h-screen pt-5">
-                <a href="" class="font-bold text-lg block hover:bg-blue-600 hover:text-white px-4 py-2">Dashboard</a>
-                <a href="" class="font-bold text-lg block hover:bg-blue-600 hover:text-white px-4 py-2">Tags</a>
+                <a href="{{route('dashboard')}}" class="font-bold text-lg block hover:bg-blue-600 hover:text-white px-4 py-2">Dashboard</a>
+                <a href="{{route('tags.index')}}" class="font-bold text-lg block hover:bg-blue-600 hover:text-white px-4 py-2">Tags</a>
                 <a href="" class="font-bold text-lg block hover:bg-blue-600 hover:text-white px-4 py-2">Companies</a>
                 <a href="" class="font-bold text-lg block hover:bg-blue-600 hover:text-white px-4 py-2">Users</a>
                 <a href="" class="font-bold text-lg block hover:bg-blue-600 hover:text-white px-4 py-2">Jobs</a>
