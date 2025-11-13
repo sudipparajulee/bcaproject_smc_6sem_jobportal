@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class TagController extends Controller
 {
     public function index(){
-        return view('tags.index');
+        $tags = Tag::all();
+        return view('tags.index', compact('tags'));
     }
 
     public function store(Request $request){
@@ -15,6 +17,7 @@ class TagController extends Controller
             'name' => 'required|unique:tags,name|max:255',
         ]);
 
-        dd($data);
+        Tag::create($data);
+        dd('done');
     }
 }
