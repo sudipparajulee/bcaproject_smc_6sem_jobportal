@@ -18,6 +18,6 @@ class TagController extends Controller
         ]);
 
         Tag::create($data);
-        dd('done');
+        return redirect()->route('tags.index')->with('success', 'Tag created successfully.');
     }
 }

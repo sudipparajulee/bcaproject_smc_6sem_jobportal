@@ -11,14 +11,16 @@
             <th class="p-2 border">Tag Name</th>
             <th class="p-2 border">Action</th>
         </tr>
+        @foreach($tags as $tag)
         <tr class="text-center">
-            <td class="p-2 border">1</td>
-            <td class="p-2 border">Sample Tag</td>
+            <td class="p-2 border">{{$loop->iteration}}</td>
+            <td class="p-2 border">{{$tag->name}}</td>
             <td class="p-2 border">
                 <a href="#" class="bg-blue-600 text-white px-4 py-1 rounded mr-2">Edit</a>
                 <a class="bg-red-600 text-white px-4 py-1 rounded">Delete</a>
             </td>
         </tr>
+        @endforeach
     </table>
 
     <div id="modal" class="hidden fixed inset-0 bg-blue-500 bg-opacity-25 backdrop-blur-sm items-center justify-center">

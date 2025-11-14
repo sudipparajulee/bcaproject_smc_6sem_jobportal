@@ -15,6 +15,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
+        @include('layouts.alert')
         <div class="flex">
             <div class="bg-gray-100 w-52 h-screen pt-5">
                 <a href="{{route('dashboard')}}" class="font-bold text-lg block hover:bg-blue-600 hover:text-white px-4 py-2">Dashboard</a>
