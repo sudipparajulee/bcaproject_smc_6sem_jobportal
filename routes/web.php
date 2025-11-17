@@ -17,6 +17,7 @@ Route::get('/dashboard',[DashboardController::class, 'dashboard'])->middleware([
 
 Route::get('/tags', [TagController::class, 'index'])->name('tags.index');
 Route::post('/tags/store', [TagController::class, 'store'])->name('tags.store');
+Route::post('/tags/update/{tagid}', [TagController::class, 'update'])->name('tags.update');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

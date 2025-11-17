@@ -43,7 +43,7 @@
             <input type="text" id="name" name="name" placeholder="Enter Tag" class="block w-full rounded ">
             <div class="flex justify-end mt-4">
                 <input onclick="hideEditModal()" type="button" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 mr-2" value="Cancel">
-                <input type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" value="Add Tag">
+                <input type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" value="Update Tag">
             </div>
         </form>
     </div>
@@ -65,6 +65,7 @@
             document.getElementById('editmodal').classList.remove('hidden');
             document.getElementById('editmodal').classList.add('flex');
             document.getElementById('name').value = name;
+            document.querySelector('#editmodal form').action = '/tags/update/'+id;
         }
         function hideEditModal(){
             document.getElementById('editmodal').classList.remove('flex');
