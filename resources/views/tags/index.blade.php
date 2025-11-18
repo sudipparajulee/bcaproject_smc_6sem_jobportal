@@ -17,7 +17,10 @@
             <td class="p-2 border">{{$tag->name}}</td>
             <td class="p-2 border">
                 <a onclick="showEditModal('{{$tag->id}}','{{$tag->name}}')" class="bg-blue-600 text-white px-4 py-1 rounded mr-2 cursor-pointer">Edit</a>
-                <a class="bg-red-600 text-white px-4 py-1 rounded">Delete</a>
+                <form action="{{route('tags.destroy', $tag->id)}}" method="POST" onsubmit="return confirm('Are you sure to Delete?')" class="bg-red-600 text-white px-4 py-1 rounded inline">
+                    @csrf
+                    <input type="submit" class="cursor-pointer" value="Delete">
+                </form>
             </td>
         </tr>
         @endforeach
