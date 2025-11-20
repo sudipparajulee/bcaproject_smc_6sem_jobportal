@@ -19,7 +19,7 @@
             <div id="userForm" class="p-6">
                 <h2 class="text-2xl font-bold text-green-600 mb-6 text-center">Create User Account</h2>
 
-                <form action="{{ route('register') }}" method="POST" novalidate>
+                <form action="{{ route('register') }}" method="POST" novalidate enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="user_type" value="user">
 
@@ -50,20 +50,18 @@
                         @enderror
                     </div>
 
+                    {{-- Confirm Password  --}}
+                    <div class="mb-4">
+                        <label for="user_password_confirmation" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+                        <input id="user_password_confirmation" name="password_confirmation" type="password" required
+                            class="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-green-600" />
+                    </div>
+
                     <div class="mb-4">
                         <label for="user_address" class="block text-sm font-medium text-gray-700">Address</label>
                         <textarea id="user_address" name="address" rows="2"
                             class="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-green-600">{{ old('address') }}</textarea>
                         @error('address')
-                            <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
-                        @enderror
-                    </div>
-
-                    <div class="mb-4">
-                        <label for="user_skills" class="block text-sm font-medium text-gray-700">Skills</label>
-                        <input id="user_skills" name="skills" type="text" value="{{ old('skills') }}" placeholder="e.g., PHP, JavaScript, Design"
-                            class="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-green-600" />
-                        @error('skills')
                             <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
                         @enderror
                     </div>
@@ -107,7 +105,7 @@
             <div id="companyForm" class="p-6 hidden">
                 <h2 class="text-2xl font-bold text-green-600 mb-6 text-center">Create Company Account</h2>
 
-                <form action="{{ route('register') }}" method="POST" novalidate>
+                <form action="{{ route('register') }}" method="POST" novalidate enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="user_type" value="company">
 
@@ -136,6 +134,13 @@
                         @error('password')
                             <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
                         @enderror
+                    </div>
+
+                    {{-- Confirm Password  --}}
+                    <div class="mb-4">
+                        <label for="company_password_confirmation" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+                        <input id="company_password_confirmation" name="password_confirmation" type="password" required
+                            class="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-green-600" />
                     </div>
 
                     <div class="mb-4">

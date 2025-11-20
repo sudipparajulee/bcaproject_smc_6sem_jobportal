@@ -33,12 +33,26 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'address' => 'required',
+            'phone' => 'required',
+            'profile_picture' => 'nullable|image',
+            'user_type' => 'required|in:user,company'
         ]);
+        $photopath = null;
+        if ($request->hasFile('profile_picture')) {
+            $photoname = time().'_'.$request->file('profile_picture')->getClientOriginalName();
+            $photopath = $request->file('profile_picture')->storeAs('profile_pictures', $photoname, 'public');
+            //this will store the file inside storage/app/public/profile_pictures folder. to make it public, run "php artisan storage:link"
+        }
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'address' => $request->address,
+            'phone' => $request->phone,
+            'role' => $request->user_type,
+            'profile_picture' => $photopath,
         ]);
 
         event(new Registered($user));
